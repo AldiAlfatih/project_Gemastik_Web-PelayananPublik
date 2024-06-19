@@ -5,11 +5,15 @@
 
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="stylelogin.css">
     <link href="/assets/css/stylelogin.css" rel="stylesheet">
@@ -17,44 +21,23 @@
 
 <body>
     <div class="container">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Masuk sekarang</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form onsubmit="event.preventDefault()" class="box">
+                        <h1>TRASH !SSUE</h1>
+                        <h3>Masuk</h3>
+                        <p class="text-muted">Tolong masukkan Username dan Katasandi</p>
+                        <input type="text" name="" placeholder="Username">
+                        <input type="password" name="" placeholder="Password">
+                        <input type="submit" name="" value="Login" href="index.php">
+                        <a class="forgot text-muted" href="">Lupa Kata Sandi?</a>
+                        <a class="forgot text-muted" href="">Belum memiliki akun?</a>
                 </div>
-                <div class="card-body">
-                    <form name="LOGIN" method="post" action="validasisistem.php">
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="username">
-
-                        </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="password">
-                        </div>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Simpan Info
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
-                        </div>
-                    </form>
-                </div>
-                <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        Belum memiliki akun?<a href="register.html">Daftar sekarang</a>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="#">Lupa katasandi?</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

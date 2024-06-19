@@ -1,89 +1,140 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-background: url(bg.jpg);
-background-color: #7DCE13;
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
-}
-
-.container{
-height: 100%;
-align-content: center;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #7DCE13, #379237)
 }
 
 .card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+    margin-bottom:20px;
+    border:none;
 }
 
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: white;
+.box {
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #191919;
+    ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px;
+    border-radius: 10px;
 }
 
-.social_icon span:hover{
-color: #198754;
-cursor: pointer;
+.box input[type="text"],
+.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
 }
 
-.card-header h3{
-color: white;
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
 }
 
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
 }
 
-.input-group-prepend span{
-width: 50px;
-background-color: #198754;
-color: black;
-border:0 !important;
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
 }
 
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
+.box input[type="submit"]:hover {
+    background: #2ecc71
 }
 
-.remember{
-color: white;
+.forgot {
+    text-decoration: underline
 }
 
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0
 }
 
-.login_btn{
-color: black;
-background-color: #198754;
-width: 100px;
+ul.social-network li {
+    display: inline;
+    margin: 0 5px
 }
 
-.login_btn:hover{
-color: black;
-background-color: white;
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998
 }
 
-
-.links{
-color: white;
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff
 }
 
-.links a{
-margin-left: 4px;
+.social-network a.icoGoogle:hover {
+    background-color: #BD3518
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+    color: #fff
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+    transform: rotate(360deg);
+    transition: all 0.2s
+}
+
+.social-circle i {
+    color: #fff;
+    transition: all 0.8s;
+    transition: all 0.8s
 }
