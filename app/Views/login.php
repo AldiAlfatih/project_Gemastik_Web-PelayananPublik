@@ -26,13 +26,13 @@
                 <div class="card">
                     <form onsubmit="event.preventDefault()" class="box">
                         <h1>TRASH !SSUE</h1>
-                        <h3>Masuk</h3>
+                        <h3 class="masukkk" >Masuk</h3>
                         <p class="text-muted">Tolong masukkan Username dan Katasandi</p>
                         <input type="text" name="" placeholder="Username">
                         <input type="password" name="" placeholder="Password">
                         <input type="submit" name="" value="Login" href="index.php">
                         <a class="forgot text-muted" href="">Lupa Kata Sandi?</a>
-                        <a class="forgot text-muted" href="">Belum memiliki akun?</a>
+                        <a class="forgot text-muted" href="register">Belum memiliki akun?</a>
                 </div>
                 </form>
             </div>

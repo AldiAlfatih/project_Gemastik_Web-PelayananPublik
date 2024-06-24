@@ -7,6 +7,7 @@ body {
 
 .card{
     margin-bottom:20px;
+    margin-top: 100px;
     border:none;
 }
 
@@ -20,7 +21,7 @@ body {
     ;
     text-align: center;
     transition: 0.25s;
-    margin-top: 100px;
+    margin-top: 20px;
     border-radius: 10px;
 }
 
@@ -69,6 +70,10 @@ body {
 
 .box input[type="submit"]:hover {
     background: #2ecc71
+}
+
+.masukkk {
+    color: #fff;
 }
 
 .forgot {
