@@ -13,4 +13,6 @@
 
 -- ALTER TABLE akun
 -- ADD UNIQUE (username),
-ADD UNIQUE (email);
+-- ADD UNIQUE (email);
+
+

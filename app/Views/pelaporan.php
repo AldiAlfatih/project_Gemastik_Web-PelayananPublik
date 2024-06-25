@@ -19,6 +19,112 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .report-form {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 400px;
+        }
+
+        .report-form h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #666;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .form-group button:focus {
+            outline: none;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .photo-grid div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-grid img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+
+        .photo-grid input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="index-page">
@@ -28,7 +134,7 @@
             TRASH !SSUE
         </div>
         <div class="middle-section">
-            <a href="#" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+            <a href="/home" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Home</span></a>
             <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
@@ -38,12 +144,12 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item" id="report-trash-link">> Ajukan Laporan</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <a href="#" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
                     <img src="https://img.icons8.com/?size=100&id=6cdJEps4HrFl&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                     <span class="text">Pusat Informasi</span>
                 </a>
@@ -55,12 +161,12 @@
             </div>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=p8J6hJXwEQQg&format=png&color=000000" alt="Poin Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Penukaran
-                    Poin</span></a>
+                <span class="text">Penukaran Poin</span>
+            </a>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=45617&format=png&color=000000" alt="Sedekah Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Sedekah
-                    Barang</span></a>
+                <span class="text">Sedekah Barang</span>
+            </a>
         </div>
         <div class="bottom-section">
             <a href="#" class="dashboard-nav-item">
@@ -69,7 +175,8 @@
             </a>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Profile</span></a>
+                <span class="text">Profile</span>
+            </a>
         </div>
     </div>
 
@@ -77,127 +184,78 @@
         <img src="https://img.icons8.com/?size=100&id=RPcB9NYY5FZq&format=png&color=000000" alt="Menu Icon" style="width: 24px; height: 24px; margin-right: 10px;">
     </div>
 
-    <div id="report-trash-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
+    <div class="main-content">
+        <!-- Form Pelaporan Sampah -->
+        <div class="report-form">
             <h2>Ajukan Laporan Sampah</h2>
-            <form id="report-trash-form">
-                <label for="judul-laporan">Judul Laporan</label>
-                <input type="text" id="judul-laporan" name="judul-laporan" required>
-
-                <label for="deskripsi-masalah">Deskripsi Masalah</label>
-                <textarea id="deskripsi-masalah" name="deskripsi-masalah" rows="4" required></textarea>
-
-                <label for="upload-foto">Upload Bukti Foto</label>
-                <input type="file" id="upload-foto" name="upload-foto" accept="image/*" required>
-
-                <label for="lokasi">Lokasi</label>
-                <input type="text" id="lokasi" name="lokasi" required>
-
-                <button type="submit">Submit</button>
+            <form action="/submit-report" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Judul Masalah</label>    
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Deskripsi Masalah</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location">Lokasi</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="photos">Bukti Foto (max 5)</label>
+                    <div class="photo-grid">
+                        <div>
+                            <input type="file" id="photo1" name="photos[]" accept="image/*" required onchange="previewImage(event, 1)">
+                            <img id="photoPreview1" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo2" name="photos[]" accept="image/*" onchange="previewImage(event, 2)">
+                            <img id="photoPreview2" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo3" name="photos[]" accept="image/*" onchange="previewImage(event, 3)">
+                            <img id="photoPreview3" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo4" name="photos[]" accept="image/*" onchange="previewImage(event, 4)">
+                            <img id="photoPreview4" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo5" name="photos[]" accept="image/*" onchange="previewImage(event, 5)">
+                            <img id="photoPreview5" src="#" alt="Preview">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Kirim Laporan</button>
             </form>
         </div>
     </div>
 
     <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
+        document.getElementById('hamburger').addEventListener('click', function () {
             var sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('expanded');
             document.querySelector('.main-content').classList.toggle('expanded');
         });
 
         document.querySelectorAll('.dashboard-nav-dropdown-toggle').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 this.parentElement.classList.toggle('active');
             });
         });
-
-        // Modal handling
-        var modal = document.getElementById('report-trash-modal');
-        var reportTrashLink = document.getElementById('report-trash-link');
-        var span = document.getElementsByClassName('close')[0];
-
-        reportTrashLink.onclick = function() {
-            modal.style.display = 'block';
-        }
-
-        span.onclick = function() {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
+        function previewImage(event, index) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('photoPreview' + index);
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
         }
     </script>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-content label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-
-        .modal-content input[type="text"],
-        .modal-content input[type="file"],
-        .modal-content textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        .modal-content button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .modal-content button:hover {
-            background-color: #45a049;
-        }
-    </style>
 </body>
 
 </html>

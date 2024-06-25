@@ -1,9 +1,3 @@
-<?php
-    if (!session()->get('logged_in')) {
-        return redirect()->to('/login');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,17 +19,50 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
+    <style>
+        .report-history {
+            background-color: #ffffff;
+            padding: 0px;
+            border-radius: 0%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center; /* Menengahkan teks di dalam .report-history */
+        }
+
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: 300px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .expanded {
+            margin-left: 0;
+        }
+    </style>
 </head>
 
-<body class="index-page">
-
+<body>
     <div class="sidebar" id="sidebar">
         <div class="top-section">
             TRASH !SSUE
         </div>
         <div class="middle-section">
-            <a href="#" class="dashboard-nav-item "><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text" active>Home</span></a>
+            <a href="/home" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+                <span class="text">Home</span></a>
             <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
             <div class='dashboard-nav-dropdown'>
@@ -44,7 +71,7 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
                     <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
@@ -61,21 +88,22 @@
             </div>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=p8J6hJXwEQQg&format=png&color=000000" alt="Poin Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Penukaran
-                    Poin</span></a>
+                <span class="text">Penukaran Poin</span>
+            </a>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=45617&format=png&color=000000" alt="Sedekah Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Sedekah
-                    Barang</span></a>
+                <span class="text">Sedekah Barang</span>
+            </a>
         </div>
         <div class="bottom-section">
-            <!-- <a href="#" class="dashboard-nav-item">
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=5SjCmls8VHtY&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Settings</span>
-            </a> -->
+            </a>
             <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Profile</span></a>
+                <span class="text">Profile</span>
+            </a>
         </div>
     </div>
 
@@ -83,17 +111,40 @@
         <img src="https://img.icons8.com/?size=100&id=RPcB9NYY5FZq&format=png&color=000000" alt="Menu Icon" style="width: 24px; height: 24px; margin-right: 10px;">
     </div>
 
-    <div class="main-content">
-        <h1>Selamat Datang di TRASH !SSUE</h1>
-        <p>
-            Kami senang Anda bergabung dengan kami. Website ini dirancang untuk memberikan pengalaman yang terbaik bagi
-            pengguna. Di sini, Anda dapat menemukan berbagai informasi dan fitur yang kami tawarkan. Jelajahi menu di
-            samping untuk mengetahui lebih lanjut tentang layanan kami.
-        </p>
-        <p>
-            Apabila Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami. Selamat
-            menikmati pengalaman berselancar di website kami!
-        </p>
+    <!-- Riwayat Laporan -->
+    <div class="report-history">
+        <h2>Riwayat Laporan</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Deskripsi</th>
+                    <th>Lokasi</th>
+                    <th>Status</th>
+                    <th>Tanggal Dibuat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($riwayatLaporan as $index => $laporan) : ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= $laporan['title'] ?></td>
+                        <td><?= $laporan['description'] ?></td>
+                        <td><?= $laporan['location'] ?></td>
+                        <td>
+                            <!-- Pastikan $laporan sudah didefinisikan sebelumnya -->
+                            <?php if (isset($laporan['status'])) : ?>
+                                <p>Status: <?php echo $laporan['status']; ?></p>
+                            <?php else : ?>
+                                <p>Status tidak tersedia</p>
+                            <?php endif; ?>
+                        </td>
+                        <td><?= $laporan['created_at'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 
     <script>
