@@ -14,3 +14,7 @@ class AkunModel extends Model {
         return $this->where('email', $email)->first();
     }
 }
+
+class settingAkun extends Model {
+    
+}

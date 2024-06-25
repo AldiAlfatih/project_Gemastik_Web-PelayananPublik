@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .profile-header .profile-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-header .profile-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-header .profile-info .user-details {
+            line-height: 1.5;
+        }
+
+        .profile-header .profile-info .user-details h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .profile-header .profile-info .user-details p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .edit-profile-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .edit-profile-form h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333333;
+        }
+
+        .edit-profile-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .edit-profile-form label {
+            font-weight: bold;
+            color: #555555;
+        }
+
+        .edit-profile-form input[type="text"],
+        .edit-profile-form input[type="email"],
+        .edit-profile-form select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .edit-profile-form button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-profile-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logout-button button {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .logout-button button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-info">
+                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                <div class="user-details">
+                    <h2>Nama Pengguna</h2>
+                    <p>Email: email@example.com</p>
+                    <p>No Telepon: 08123456789</p>
+                    <p>Poin Kontribusi: 500</p>
+                </div>
+            </div>
+            <button class="btn btn-primary">Edit Profil</button>
+        </div>
+
+        <div class="edit-profile-form">
+            <h3>Edit Profil</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="username">Nama Pengguna:</label>
+                    <input type="text" id="username" name="username" value="Nama Pengguna" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">No Telepon:</label>
+                    <input type="text" id="phone" name="phone" value="08123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Jenis Kelamin:</label>
+                    <select id="gender" name="gender">
+                        <option value="male">Laki-laki</option>
+                        <option value="female">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="province">Provinsi:</label>
+                    <input type="text" id="province" name="province" value="Jawa Barat">
+                </div>
+                <div class="form-group">
+                    <label for="city">Kota:</label>
+                    <input type="text" id="city" name="city" value="Bandung">
+                </div>
+                <div class="form-group">
+                    <label for="district">Kecamatan:</label>
+                    <input type="text" id="district" name="district" value="Regol">
+                </div>
+                <div class="form-group">
+                    <label for="subdistrict">Kelurahan:</label>
+                    <input type="text" id="subdistrict" name="subdistrict" value="Ciroyom">
+                </div>
+                <button type="submit">Simpan Perubahan</button>
+            </form>
+        </div>
+
+        <div class="logout-button">
+            <button class="btn btn-danger">Keluar Akun</button>
+        </div>
+    </div>
+</body>
+
+</html>

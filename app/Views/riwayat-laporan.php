@@ -71,8 +71,8 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
@@ -96,11 +96,11 @@
             </a>
         </div>
         <div class="bottom-section">
-            <a href="#" class="dashboard-nav-item">
+            <!-- <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=5SjCmls8VHtY&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Settings</span>
-            </a>
-            <a href="#" class="dashboard-nav-item">
+            </a> -->
+            <a href="/settingProfil" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Profile</span>
             </a>

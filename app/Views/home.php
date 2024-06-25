@@ -34,7 +34,7 @@
             TRASH !SSUE
         </div>
         <div class="middle-section">
-            <a href="#" class="dashboard-nav-item "><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+            <a href="/home" class="dashboard-nav-item "><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text" active>Home</span></a>
             <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
@@ -45,7 +45,7 @@
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
                     <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
@@ -73,7 +73,7 @@
                 <img src="https://img.icons8.com/?size=100&id=5SjCmls8VHtY&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Settings</span>
             </a> -->
-            <a href="#" class="dashboard-nav-item">
+            <a href="/settingProfil" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Profile</span></a>
         </div>

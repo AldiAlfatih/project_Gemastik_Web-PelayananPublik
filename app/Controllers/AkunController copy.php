@@ -73,4 +73,9 @@ class AkunController extends Controller
     {
         return view('pelaporan');
     }
+
+    public function setting(): string
+    {
+        return view('settingProfil');
+    }
 }

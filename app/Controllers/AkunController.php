@@ -56,11 +56,8 @@ class AkunController extends Controller
                 'username' => $user['username'],
                 'logged_in' => true,
             ]);
-
-            // Redirect ke halaman utama atau dashboard
             return redirect()->to('/');
         } else {
-            // Jika login gagal, kembalikan ke halaman login dengan pesan error
             return redirect()->back()->with('error', 'Email atau Password salah');
         }
     }
@@ -72,5 +69,12 @@ class AkunController extends Controller
     public function pelaporan(): string
     {
         return view('pelaporan');
+    }
+
+    public function setting()
+    {
+        $user = session()->get('user');
+
+        return view('settingProfil', ['user' => $user]);
     }
 }
