@@ -6,6 +6,6 @@
     <title>Selamat datang</title>
 </head>
 <body>
-    <p>Selamat Datang</p>
+    <p>Selaccmat Datang</p>
 </body>
 </html>
