@@ -11,6 +11,11 @@ class Home extends BaseController
         return view('register');
     }
 
+    public function login(): string
+    {
+        return view('login');
+    }
+
     public function home(): string
     {
         return view('home');
