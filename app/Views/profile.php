@@ -127,14 +127,13 @@
                     </div>
                 `;
                 
-                // Mengisi nilai awal dari form edit dengan data profil yang ada (contoh sederhana)
+                // Mengisi nilai awal dari form edit dengan data profil yang ada
                 document.getElementById('edit-nama-lengkap').value = 'Nama Lengkap Pengguna';
                 document.getElementById('edit-username').value = 'UsernamePengguna';
-                document.getElementById('edit-tanggal-lahir').value = '2000-01-01'; // Format YYYY-MM-DD
+                document.getElementById('edit-tanggal-lahir').value = '2000-01-01';
                 document.getElementById('edit-alamat').value = 'Alamat Pengguna';
                 document.getElementById('edit-no-telpon').value = '08123456789';
 
-                // Event listener untuk submit form edit
                 document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
                     event.preventDefault();
                     // Simpan proses penyimpanan data ke backend di sini (harus diimplementasikan dengan server-side logic)

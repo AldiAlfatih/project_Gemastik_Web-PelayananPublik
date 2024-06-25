@@ -77,7 +77,6 @@
         <img src="https://img.icons8.com/?size=100&id=RPcB9NYY5FZq&format=png&color=000000" alt="Menu Icon" style="width: 24px; height: 24px; margin-right: 10px;">
     </div>
 
-    <!-- Modal for Trash Report -->
     <div id="report-trash-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -133,7 +132,6 @@
         }
     </script>
 
-    <!-- Include Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <style>
