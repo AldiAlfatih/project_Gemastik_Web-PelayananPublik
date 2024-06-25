@@ -48,19 +48,17 @@
                     <span class="text">Pusat Informasi</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Artikel Edukasi</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Video Edukasi</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Lokasi Bank Sampah</a>
+                    <a href="artikel" class="dashboard-nav-dropdown-item">> Artikel Edukasi</a>
+                    <a href="video_edukasi" class="dashboard-nav-dropdown-item">> Video Edukasi</a>
+                    <a href="lokasi_bank_sampah" class="dashboard-nav-dropdown-item">> Lokasi Bank Sampah</a>
                 </div>
             </div>
-            <a href="#" class="dashboard-nav-item">
+            <a href="penukaran_poin" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=p8J6hJXwEQQg&format=png&color=000000" alt="Poin Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Penukaran
-                    Poin</span></a>
-            <a href="#" class="dashboard-nav-item">
+                <span class="text">Penukaran Poin</span></a>
+            <a href="sedekah_barang" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=45617&format=png&color=000000" alt="Sedekah Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text">Sedekah
-                    Barang</span></a>
+                <span class="text">Sedekah Barang</span></a>
         </div>
         <div class="bottom-section">
             <a href="#" class="dashboard-nav-item">
