@@ -78,7 +78,7 @@
     <div class="main-content">
         <h1>Ingin menyumbangkan barang-barang anda yang tidak terpakai?</h1>
 
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="process_form.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama-lengkap">Nama Lengkap</label>
                 <input type="text" id="nama-lengkap" name="nama-lengkap" required>
