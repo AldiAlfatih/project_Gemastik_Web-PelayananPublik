@@ -29,6 +29,7 @@
         </div>
         <div class="middle-section">
             <a href="/home" class="dashboard-nav-item">
+            <a href="/home" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Home</span>
             </a>
@@ -42,8 +43,8 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="ajukan_laporan.php" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
-                    <a href="riwayat_laporan.php" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
