@@ -1,9 +1,3 @@
-<?php
-    if (!session()->get('logged_in')) {
-        return redirect()->to('/login');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <!-- Main CSS File -->
-    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/sedekah.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -34,9 +28,11 @@
             TRASH !SSUE
         </div>
         <div class="middle-section">
-            <a href="/home" class="dashboard-nav-item "><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text" active>Home</span></a>
-            <a href="akun/leaderboard" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+            <a href="index.php" class="dashboard-nav-item">
+                <img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+                <span class="text">Home</span>
+            </a>
+            <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
             <div class='dashboard-nav-dropdown'>
                 <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
@@ -44,12 +40,12 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
-                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <a href="#" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
                     <img src="https://img.icons8.com/?size=100&id=6cdJEps4HrFl&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                     <span class="text">Pusat Informasi</span>
                 </a>
@@ -62,16 +58,16 @@
             <a href="penukaran_poin" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=p8J6hJXwEQQg&format=png&color=000000" alt="Poin Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Penukaran Poin</span></a>
-            <a href="sedekah_barang" class="dashboard-nav-item">
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=45617&format=png&color=000000" alt="Sedekah Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Sedekah Barang</span></a>
         </div>
         <div class="bottom-section">
-            <!-- <a href="#" class="dashboard-nav-item">
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=5SjCmls8VHtY&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Settings</span>
-            </a> -->
-            <a href="/settingProfil" class="dashboard-nav-item">
+            </a>
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Profile</span></a>
         </div>
@@ -82,39 +78,45 @@
     </div>
 
     <div class="main-content">
-        <h1>Selamat Datang di TRASH !SSUE</h1>
-        <p>
-            Kami senang Anda bergabung dengan kami. Website ini dirancang untuk memberikan pengalaman yang terbaik bagi
-            pengguna. Di sini, Anda dapat menemukan berbagai informasi dan fitur yang kami tawarkan. Jelajahi menu di
-            samping untuk mengetahui lebih lanjut tentang layanan kami.
-        </p>
-        <p>
-            Apabila Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami. Selamat
-            menikmati pengalaman berselancar di website kami!
-        </p>
+        <h1>Ingin menyumbangkan barang-barang anda yang tidak terpakai?</h1>
+
+        <form action="process_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nama-lengkap">Nama Lengkap</label>
+                <input type="text" id="nama-lengkap" name="nama-lengkap" required>
+            </div>
+            <div class="form-group">
+                <label for="nomor-telepon">Nomor Telepon</label>
+                <input type="tel" id="nomor-telepon" name="nomor-telepon" required>
+            </div>
+            <div class="form-group">
+                <label for="jenis-barang">Jenis Barang</label>
+                <input type="text" id="jenis-barang" name="jenis-barang" required>
+            </div>
+            <div class="form-group">
+                <label for="kuantitas-barang">Kuantitas Barang</label>
+                <input type="number" id="kuantitas-barang" name="kuantitas-barang" required>
+            </div>
+            <div class="form-group">
+                <label for="gambar-barang">Gambar Barang</label>
+                <input type="file" id="gambar-barang" name="gambar-barang" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="metode-penyerahan">Metode Penyerahan Barang</label>
+                <select id="metode-penyerahan" name="metode-penyerahan" required>
+                    <option value="antar">Antar ke Kantor</option>
+                    <option value="jemput">Barang Dijemput</option>
+                </select>
+            </div>
+            <button type="submit">Kirim</button>
+        </form>
     </div>
 
     <script>
-        // Restore the sidebar state from localStorage
-        window.onload = function() {
-            var sidebarState = localStorage.getItem('sidebarState');
-            if (sidebarState === 'expanded') {
-                document.getElementById('sidebar').classList.add('expanded');
-                document.querySelector('.main-content').classList.add('expanded');
-            }
-        }
-
         document.getElementById('hamburger').addEventListener('click', function() {
             var sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('expanded');
             document.querySelector('.main-content').classList.toggle('expanded');
-
-            // Save the sidebar state to localStorage
-            if (sidebar.classList.contains('expanded')) {
-                localStorage.setItem('sidebarState', 'expanded');
-            } else {
-                localStorage.setItem('sidebarState', 'collapsed');
-            }
         });
 
         document.querySelectorAll('.dashboard-nav-dropdown-toggle').forEach(item => {
