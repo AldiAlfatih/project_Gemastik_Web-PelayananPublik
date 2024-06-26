@@ -22,7 +22,7 @@
 
     html,
     body {
-        color: rgba(33, 37, 41, 1);
+        color: rgba(34, 37, 41, 1);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 16px;
         margin: 0;
