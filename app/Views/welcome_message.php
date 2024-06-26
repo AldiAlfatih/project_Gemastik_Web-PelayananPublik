@@ -47,7 +47,7 @@
         margin: 0;
         overflow: hidden;
         padding: 0;
-        text-align: right;
+        text-align: left;
     }
 
     header li {
