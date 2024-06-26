@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/landingstyle.css">
 </head>
 <body>
+    <!-- Landing PAge -->
     <header>
         <div class="container">
             <div class="logo">TRASH !SSUE</div>
