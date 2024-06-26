@@ -9,10 +9,12 @@
 <body>
     <h1 style="margin-left: 2.7rem">Detail Laporan</h1>
 
+    <!-- konten -->
     <div class="container">
         <h2><?= $report['title'] ?></h2>
         <p><?= $report['description'] ?></p>
 
+        <!-- gambar -->
         <h3>Gambar</h3>
         <div class="images">
             <?php foreach ($images as $image): ?>
