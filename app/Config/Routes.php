@@ -22,6 +22,8 @@ $routes->post('/login', 'AkunController::autentikasi');
 $routes->get('/', 'AkunController::index');
 $routes->get('/akun/leaderboard', 'AkunController::leaderboard');
 
+$routes->get('/akun/profile/', 'AkunController::lihat_profil');
+
 $routes->group('admin', function($routes) {
     $routes->get('/', 'AdminController::index'); // Dashboard admin
     $routes->get('view/(:num)', 'AdminController::view/$1'); // Melihat detail laporan

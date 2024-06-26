@@ -78,4 +78,9 @@ class AkunController extends Controller
         
         return view('leaderboard', $data);
     }
+
+    public function lihat_profil(): string
+    {
+        return view('profile');
+    }
 }
