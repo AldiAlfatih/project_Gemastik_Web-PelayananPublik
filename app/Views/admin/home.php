@@ -25,6 +25,7 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/admin.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -83,17 +84,29 @@
         <img src="https://img.icons8.com/?size=100&id=RPcB9NYY5FZq&format=png&color=000000" alt="Menu Icon" style="width: 24px; height: 24px; margin-right: 10px;">
     </div>
 
-    <div class="main-content">
-        <h1>Selamat Datang di TRASH !SSUE</h1>
-        <p>
-            Kami senang Anda bergabung dengan kami. Website ini dirancang untuk memberikan pengalaman yang terbaik bagi
-            pengguna. Di sini, Anda dapat menemukan berbagai informasi dan fitur yang kami tawarkan. Jelajahi menu di
-            samping untuk mengetahui lebih lanjut tentang layanan kami.
-        </p>
-        <p>
-            Apabila Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami. Selamat
-            menikmati pengalaman berselancar di website kami!
-        </p>
+    <div class="main-content" style="margin-left: 15rem">
+        <header>
+            <h1>Admin Dashboard</h1>
+        </header>
+
+        <div class="container">
+            <?php if (session()->getFlashdata('notif')): ?>
+                <div class="notification">
+                    <?= "❗         ". session()->getFlashdata('notif') ?>
+                </div>
+            <?php endif; ?>
+
+            <h2>Laporan Menunggu</h2>
+            <ul>
+                <?php foreach ($reports as $report): ?>
+                    <?php if ($report['status_laporan'] === 'menunggu'): ?>
+                        <li>
+                            <?= $report['title'] ?> - <a href="/admin/view/<?= $report['id'] ?>">Lihat</a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 
     <script>

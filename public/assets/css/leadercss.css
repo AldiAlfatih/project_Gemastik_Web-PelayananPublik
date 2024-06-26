@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7e0, #d0f0d0); /* Background hijau gradasi */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.leaderboard-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #2f4f2f; /* Warna hijau gelap */
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.leaderboard {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.leaderboard th, .leaderboard td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.leaderboard th {
+    background-color: #4caf50; /* Warna hijau */
+    color: white;
+}
+
+.leaderboard tr:nth-child(even) {
+    background-color: #f2fff2; /* Background hijau sangat muda untuk baris genap */
+}
+
+.leaderboard tr:hover {
+    background-color: #d1ffd1; /* Warna hijau saat di-hover */
+}
+
+.leaderboard tr.gold td {
+    background-color: #ffd700; /* Warna emas */
+    color: black;
+    font-weight: bold;
+}
+
+.leaderboard tr.silver td {
+    background-color: #c0c0c0; /* Warna silver */
+    color: black;
+    font-weight: bold;
+}
+
+.leaderboard tr.bronze td {
+    background-color: #cd7f32; /* Warna bronze */
+    color: black;
+    font-weight: bold;
+}
+
+.leaderboard td {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

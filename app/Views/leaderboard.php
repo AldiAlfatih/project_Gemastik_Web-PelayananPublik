@@ -25,6 +25,7 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/leadercss.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -36,7 +37,7 @@
         <div class="middle-section">
             <a href="#" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text" >Home</span></a>
-            <a href="akun/leaderboard" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+            <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
             <div class='dashboard-nav-dropdown'>
                 <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
@@ -84,16 +85,27 @@
     </div>
 
     <div class="main-content">
-        <h1>Selamat Datang di TRASH !SSUE</h1>
-        <p>
-            Kami senang Anda bergabung dengan kami. Website ini dirancang untuk memberikan pengalaman yang terbaik bagi
-            pengguna. Di sini, Anda dapat menemukan berbagai informasi dan fitur yang kami tawarkan. Jelajahi menu di
-            samping untuk mengetahui lebih lanjut tentang layanan kami.
-        </p>
-        <p>
-            Apabila Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami. Selamat
-            menikmati pengalaman berselancar di website kami!
-        </p>
+    <div class="leaderboard-container">
+        <h1>Leaderboard</h1>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Poin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 1; foreach ($leaderboard as $row): ?>
+                <tr class="<?= $no == 1 ? 'gold' : ($no == 2 ? 'silver' : ($no == 3 ? 'bronze' : '')) ?>">
+                    <td><?= $no++ ?></td>
+                    <td><?= esc($row['username']) ?></td>
+                    <td><?= esc($row['poin']) ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
     </div>
 
     <script>

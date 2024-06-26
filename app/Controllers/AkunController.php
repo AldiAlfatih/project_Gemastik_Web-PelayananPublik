@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\LeaderboardModel;
 
 class AkunController extends Controller
 {
@@ -67,5 +68,14 @@ class AkunController extends Controller
     public function index(): string
     {
         return view('home');
+    }
+
+
+    public function leaderboard(): string
+    {
+        $model = new LeaderboardModel();
+        $data['leaderboard'] = $model->orderBy('poin', 'DESC')->findAll();
+        
+        return view('leaderboard', $data);
     }
 }

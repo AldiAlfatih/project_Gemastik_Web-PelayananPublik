@@ -20,5 +20,11 @@ class Home extends BaseController
     {
         return view('home');
     }
+    
+    public function leaderboard(): string
+    {
+        return view('leaderboard');
+    }
+    
 
 }
