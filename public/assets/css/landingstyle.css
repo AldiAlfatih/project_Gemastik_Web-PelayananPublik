@@ -1,0 +1,172 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+/* land */
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(to bottom, #7dce13, #82cd47);
+    color: white;
+    padding: 200px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0 0 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin: 0 0 30px;
+}
+
+.hero .cta-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Features Section Styles */
+.features {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.features .feature-item {
+    margin-bottom: 30px;
+}
+
+.features .feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.features .feature-item p {
+    font-size: 18px;
+}
+
+/* Testimonials Section Styles */
+.testimonials {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.testimonials .testimonial-item {
+    margin-bottom: 30px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.testimonials .testimonial-item p {
+    margin: 0 0 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #ff5722;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header nav {
+        float: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    header nav ul {
+        display: block;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero .cta-button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    .features h2, .testimonials h2 {
+        font-size: 30px;
+    }
+}
