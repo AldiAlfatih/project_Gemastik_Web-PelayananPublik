@@ -16,7 +16,7 @@
         <h3>Gambar</h3>
         <div class="images">
             <?php foreach ($images as $image): ?>
-                <img src="/uploads/<?= $image['photo'] ?>" alt="Gambar Laporan" style="max-width: 100%; height: auto;">
+                <img src="assets/uploads/<?= $image['photo'] ?>" alt="Gambar Laporan" style="max-width: 100%; height: auto;">
             <?php endforeach; ?>
         </div>
 
