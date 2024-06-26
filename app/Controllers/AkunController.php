@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\LeaderboardModel;
 
 class AkunController extends Controller
 {
@@ -76,5 +77,19 @@ class AkunController extends Controller
         $user = session()->get('user');
 
         return view('settingProfil', ['user' => $user]);
+    }
+
+
+    public function leaderboard(): string
+    {
+        $model = new LeaderboardModel();
+        $data['leaderboard'] = $model->orderBy('poin', 'DESC')->findAll();
+        
+        return view('leaderboard', $data);
+    }
+
+    public function lihat_profil(): string
+    {
+        return view('profile');
     }
 }

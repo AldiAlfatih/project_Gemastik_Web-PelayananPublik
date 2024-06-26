@@ -25,6 +25,7 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/admin.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -34,8 +35,8 @@
             TRASH !SSUE
         </div>
         <div class="middle-section">
-            <a href="/home" class="dashboard-nav-item "><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
-                <span class="text" active>Home</span></a>
+            <a href="#" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+                <span class="text" >Home</span></a>
             <a href="akun/leaderboard" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
             <div class='dashboard-nav-dropdown'>
@@ -44,8 +45,8 @@
                     <span class="text">Pelaporan</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="/pelaporan" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
-                    <a href="<?= base_url('/riwayat-laporan') ?>" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Ajukan Laporan</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">> Cek Riwayat Laporan</a>
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
@@ -69,11 +70,11 @@
                     Barang</span></a>
         </div>
         <div class="bottom-section">
-            <!-- <a href="#" class="dashboard-nav-item">
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=5SjCmls8VHtY&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Settings</span>
-            </a> -->
-            <a href="/settingProfil" class="dashboard-nav-item">
+            </a>
+            <a href="#" class="dashboard-nav-item">
                 <img src="https://img.icons8.com/?size=100&id=15249&format=png&color=000000" alt="Profile Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Profile</span></a>
         </div>
@@ -83,17 +84,29 @@
         <img src="https://img.icons8.com/?size=100&id=RPcB9NYY5FZq&format=png&color=000000" alt="Menu Icon" style="width: 24px; height: 24px; margin-right: 10px;">
     </div>
 
-    <div class="main-content">
-        <h1>Selamat Datang di TRASH !SSUE</h1>
-        <p>
-            Kami senang Anda bergabung dengan kami. Website ini dirancang untuk memberikan pengalaman yang terbaik bagi
-            pengguna. Di sini, Anda dapat menemukan berbagai informasi dan fitur yang kami tawarkan. Jelajahi menu di
-            samping untuk mengetahui lebih lanjut tentang layanan kami.
-        </p>
-        <p>
-            Apabila Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami. Selamat
-            menikmati pengalaman berselancar di website kami!
-        </p>
+    <div class="main-content" style="margin-left: 15rem">
+        <header>
+            <h1>Admin Dashboard</h1>
+        </header>
+
+        <div class="container">
+            <?php if (session()->getFlashdata('notif')): ?>
+                <div class="notification">
+                    <?= "❗         ". session()->getFlashdata('notif') ?>
+                </div>
+            <?php endif; ?>
+
+            <h2>Laporan Menunggu</h2>
+            <ul>
+                <?php foreach ($reports as $report): ?>
+                    <?php if ($report['status_laporan'] === 'menunggu'): ?>
+                        <li>
+                            <?= $report['title'] ?> - <a href="/admin/view/<?= $report['id'] ?>">Lihat</a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 
     <script>
