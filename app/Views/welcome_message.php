@@ -22,7 +22,7 @@
 
     html,
     body {
-        color: rgba(33, 37, 41, 1);
+        color: rgba(34, 37, 41, 1);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
         font-size: 16px;
         margin: 0;
@@ -38,16 +38,16 @@
     }
 
     .menu {
-        padding: .4rem 2rem;
+        padding: .4rem 1rem;
     }
 
     header ul {
-        border-bottom: 1px solid rgba(242, 242, 242, 1);
+        border-bottom: 2px solid rgba(242, 243, 242, 1);
         list-style-type: none;
         margin: 0;
         overflow: hidden;
         padding: 0;
-        text-align: right;
+        text-align: left;
     }
 
     header li {
@@ -164,14 +164,14 @@
 
     section svg {
         margin-bottom: -5px;
-        margin-right: 5px;
+        margin-right: 7px;
         width: 25px;
     }
 
     .further {
         background-color: rgba(247, 248, 249, 1);
         border-bottom: 1px solid rgba(242, 242, 242, 1);
-        border-top: 1px solid rgba(242, 242, 242, 1);
+        border-top: 2px solid rgba(242, 242, 242, 1);
     }
 
     .further h2:first-of-type {
@@ -197,7 +197,7 @@
     footer .copyrights {
         background-color: rgba(62, 62, 62, 1);
         color: rgba(200, 200, 200, 1);
-        padding: .25rem 1.75rem;
+        padding: .25rem 1.78rem;
     }
 
     @media (max-width: 629px) {
