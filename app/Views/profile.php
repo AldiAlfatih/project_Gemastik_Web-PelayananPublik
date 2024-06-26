@@ -128,7 +128,7 @@
                 `;
                 
                 // Mengisi nilai awal dari form edit dengan data profil yang ada
-                document.getElementById('edit-nama-lengkap').value = 'Nama Lengkap Pengguna';
+                document.getElementById('edit-nama-lengkap').value = 'Nama Lengkap';
                 document.getElementById('edit-username').value = 'UsernamePengguna';
                 document.getElementById('edit-tanggal-lahir').value = '2000-01-01';
                 document.getElementById('edit-alamat').value = 'Alamat Pengguna';
