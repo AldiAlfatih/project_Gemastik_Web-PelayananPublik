@@ -89,10 +89,26 @@
     </div>
 
     <script>
+        // Restore the sidebar state from localStorage
+        window.onload = function() {
+            var sidebarState = localStorage.getItem('sidebarState');
+            if (sidebarState === 'expanded') {
+                document.getElementById('sidebar').classList.add('expanded');
+                document.querySelector('.main-content').classList.add('expanded');
+            }
+        }
+
         document.getElementById('hamburger').addEventListener('click', function() {
             var sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('expanded');
             document.querySelector('.main-content').classList.toggle('expanded');
+
+            // Save the sidebar state to localStorage
+            if (sidebar.classList.contains('expanded')) {
+                localStorage.setItem('sidebarState', 'expanded');
+            } else {
+                localStorage.setItem('sidebarState', 'collapsed');
+            }
         });
 
         document.querySelectorAll('.dashboard-nav-dropdown-toggle').forEach(item => {

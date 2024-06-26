@@ -24,7 +24,5 @@ $routes->get('/lokasi_bank_sampah', 'Lokasi_bank_sampah::index');
 $routes->get('/penukaran_poin', 'Penukaran_poin::index');
 $routes->get('/sedekah_barang', 'Sedekah_barang::index');
 $routes->post('/login', 'AkunController::autentikasi');
-$routes->post('submit-form', 'FormController::submit');
-
-
 $routes->get('/', 'AkunController::index');
+

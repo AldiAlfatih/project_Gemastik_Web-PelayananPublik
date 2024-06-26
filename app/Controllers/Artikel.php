@@ -10,4 +10,8 @@ class Artikel extends BaseController
     {
         return view('artikel');
     }
+    public function sidebar(): string
+    {
+        return view('artikel');
+    }
 }

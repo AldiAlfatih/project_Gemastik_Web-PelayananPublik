@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class='dashboard-nav-dropdown'>
-                <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                <a href="#" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
                     <img src="https://img.icons8.com/?size=100&id=6cdJEps4HrFl&format=png&color=000000" alt="Settings Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                     <span class="text">Pusat Informasi</span>
                 </a>
