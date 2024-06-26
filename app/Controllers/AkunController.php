@@ -57,7 +57,7 @@ class AkunController extends Controller
                 'username' => $user['username'],
                 'logged_in' => true,
             ]);
-            return redirect()->to('/');
+            return redirect()->to('/home');
         } else {
             return redirect()->back()->with('error', 'Email atau Password salah');
         }

@@ -15,7 +15,7 @@ $routes->get('/register', 'AkunController::register');
 $routes->post('/akun/register', 'AkunController::register');
 $routes->get('/login', 'AkunController::login');
 $routes->get('/login', 'AkunController::autentikasi');
-// $routes->get('/home', 'AkunController::login');
+$routes->get('/home', 'AkunController::index');
 $routes->post('/login', 'AkunController::autentikasi');
 
 $routes->get('/', 'AkunController::index');
