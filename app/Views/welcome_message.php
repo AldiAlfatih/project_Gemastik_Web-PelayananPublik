@@ -164,14 +164,14 @@
 
     section svg {
         margin-bottom: -5px;
-        margin-right: 5px;
+        margin-right: 7px;
         width: 25px;
     }
 
     .further {
         background-color: rgba(247, 248, 249, 1);
         border-bottom: 1px solid rgba(242, 242, 242, 1);
-        border-top: 1px solid rgba(242, 242, 242, 1);
+        border-top: 2px solid rgba(242, 242, 242, 1);
     }
 
     .further h2:first-of-type {
@@ -197,7 +197,7 @@
     footer .copyrights {
         background-color: rgba(62, 62, 62, 1);
         color: rgba(200, 200, 200, 1);
-        padding: .25rem 1.75rem;
+        padding: .25rem 1.78rem;
     }
 
     @media (max-width: 629px) {
