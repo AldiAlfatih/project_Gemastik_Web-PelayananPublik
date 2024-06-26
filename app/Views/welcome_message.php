@@ -42,7 +42,7 @@
     }
 
     header ul {
-        border-bottom: 1px solid rgba(242, 242, 242, 1);
+        border-bottom: 2px solid rgba(242, 242, 242, 1);
         list-style-type: none;
         margin: 0;
         overflow: hidden;
