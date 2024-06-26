@@ -63,7 +63,7 @@ class AkunController extends Controller
     }
     public function index(): string
     {
-        return view('home');
+        return view('home'); 
     }
 
     public function pelaporan(): string

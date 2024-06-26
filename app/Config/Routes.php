@@ -27,4 +27,3 @@ $routes->group('profile', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'ProfileCon::index');
     $routes->post('/update', 'ProfileCon::update');
 });
-
