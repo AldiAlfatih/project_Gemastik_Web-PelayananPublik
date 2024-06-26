@@ -82,7 +82,7 @@
     </div>
 
     <div class="main-content">
-    <h1>Semua Artikel</h1>
+    <h1>Semua Artikel Edukasi</h1>
     <div class="search-container">
         <div class="search-box">
             <input type="text" id="search-bar" placeholder="Cari artikel...">
