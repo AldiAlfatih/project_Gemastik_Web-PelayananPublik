@@ -38,7 +38,7 @@
     }
 
     .menu {
-        padding: .4rem 2rem;
+        padding: .4rem 1rem;
     }
 
     header ul {
