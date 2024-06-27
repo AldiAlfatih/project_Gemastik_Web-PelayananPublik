@@ -146,6 +146,10 @@ body {
     display: flex;
 }
 
+.item:hover {
+    background-color: #ccc; /* Warna abu-abu */
+}
+
 .item img {
     width: 200px;
     height: 200px;
