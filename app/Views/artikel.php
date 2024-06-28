@@ -163,10 +163,18 @@
 
 
     <script>
+        window.onload = function() {
+            var sidebarState = localStorage.getItem('sidebarState');
+            if (sidebarState === 'expanded') {
+                document.getElementById('sidebar').classList.add('expanded');
+                document.querySelector('.main-content').classList.add('expanded');
+            }
+        }
         document.getElementById('hamburger').addEventListener('click', function() {
             var sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('expanded');
             document.querySelector('.main-content').classList.toggle('expanded');
+            localStorage.setItem('sidebarState', sidebar.classList.contains('expanded') ? 'expanded' : 'collapsed');
         });
 
         document.querySelectorAll('.dashboard-nav-dropdown-toggle').forEach(item => {
@@ -176,19 +184,29 @@
         });
 
         // Fungsi pencarian artikel
-        document.getElementById('search-bar').addEventListener('keyup', function() {
-            var searchTerm = this.value.toLowerCase();
+        document.getElementById('search-button').addEventListener('click', function() {
+            var searchBar = document.getElementById('search-bar');
+            var filter = searchBar.value.toLowerCase();
             var articles = document.querySelectorAll('.article');
+
             articles.forEach(function(article) {
-                var title = article.querySelector('h2').innerText.toLowerCase();
-                if (title.includes(searchTerm)) {
+                var articleTitle = article.querySelector('.article-content h2').textContent.toLowerCase();
+                if (articleTitle.includes(filter)) {
                     article.style.display = '';
                 } else {
                     article.style.display = 'none';
                 }
             });
         });
+
+        // Trigger search when pressing Enter key
+        document.getElementById('search-bar').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('search-button').click();
+            }
+        });
     </script>
+
 
     <!-- Include Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

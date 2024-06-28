@@ -180,6 +180,43 @@ Extra Large - 42x15x30 cm.</p>
 
     <!-- Include Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('expanded');
+        document.querySelector('.main-content').classList.toggle('expanded');
+    });
+
+    document.querySelectorAll('.dashboard-nav-dropdown-toggle').forEach(item => {
+        item.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+
+    // Search functionality
+    document.getElementById('search-button').addEventListener('click', function() {
+        var searchBar = document.getElementById('search-bar');
+        var filter = searchBar.value.toLowerCase();
+        var items = document.querySelectorAll('.item');
+
+        items.forEach(function(item) {
+            var itemName = item.querySelector('.item-info h2').textContent.toLowerCase();
+            if (itemName.includes(filter)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+
+    // Trigger search when pressing Enter key
+    document.getElementById('search-bar').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            document.getElementById('search-button').click();
+        }
+    });
+</script>
+
 
 </body>
 
