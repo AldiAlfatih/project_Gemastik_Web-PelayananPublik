@@ -62,7 +62,7 @@ class ControlMenu extends Controller
             'title' => 'required',
             'description' => 'required',
             'location' => 'required',
-            'photo' => [
+            'photos' => [
                 'uploaded[photos]',
                 'mime_in[photos,image/jpg,image/jpeg,image/png]',
                 'max_size[photos,2048]',
@@ -78,7 +78,7 @@ class ControlMenu extends Controller
         $title = $this->request->getPost('title');
         $description = $this->request->getPost('description');
         $location = $this->request->getPost('location');
-        $photos = $this->request->getFiles('photo');
+        $photos = $this->request->getFiles('photos');
         
         // Simpan data laporan
         $laporanId = $laporanModel->insert([
@@ -90,7 +90,7 @@ class ControlMenu extends Controller
         ]);
 
         // Simpan setiap foto yang diunggah
-        foreach ($photos['photo'] as $photo) {
+        foreach ($photos['photos'] as $photo) {
             if ($photo->isValid() && !$photo->hasMoved()) {
                 $newName = $photo->getRandomName();
                 $photo->move(WRITEPATH . 'uploads', $newName);

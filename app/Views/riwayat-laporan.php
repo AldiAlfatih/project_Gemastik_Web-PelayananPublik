@@ -81,9 +81,9 @@
                     <span class="text">Pusat Informasi</span>
                 </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Artikel Edukasi</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Video Edukasi</a>
-                    <a href="#" class="dashboard-nav-dropdown-item">> Lokasi Bank Sampah</a>
+                    <a href="artikel" class="dashboard-nav-dropdown-item">> Artikel Edukasi</a>
+                    <a href="video_edukasi" class="dashboard-nav-dropdown-item">> Video Edukasi</a>
+                    <a href="lokasi_bank_sampah" class="dashboard-nav-dropdown-item">> Lokasi Bank Sampah</a>
                 </div>
             </div>
             <a href="#" class="dashboard-nav-item">
