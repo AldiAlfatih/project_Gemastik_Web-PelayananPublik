@@ -165,6 +165,13 @@ Extra Large - 42x15x30 cm.</p>
     </div>
 
     <script>
+        window.onload = function() {
+            var sidebarState = localStorage.getItem('sidebarState');
+            if (sidebarState === 'expanded') {
+                document.getElementById('sidebar').classList.add('expanded');
+                document.querySelector('.main-content').classList.add('expanded');
+            }
+        }
         document.getElementById('hamburger').addEventListener('click', function() {
             var sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('expanded');

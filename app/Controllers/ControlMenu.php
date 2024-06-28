@@ -12,6 +12,10 @@ class ControlMenu extends Controller
         return view('pelaporan');
     }
 
+    public function infoleadeboard() {
+        return view('leaderboard');
+    }
+
     // public function submit()
     // {
     //     // Ambil data dari form laporan
@@ -109,5 +113,7 @@ class ControlMenu extends Controller
 
         return view('riwayat-laporan', ['riwayatLaporan' => $riwayatLaporan]);
     }
+
+
 
 }
