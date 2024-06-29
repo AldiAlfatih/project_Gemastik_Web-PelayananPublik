@@ -8,7 +8,7 @@ class LeaderboardModel extends Model
 {
     protected $table = 'leaderboard';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['username', 'poin'];
+    protected $allowedFields = ['poin'];
 
     public function getLeaderboard($userId)
         {

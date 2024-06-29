@@ -1,3 +1,9 @@
+<?php
+    if (!session()->get('logged_in')) {
+        return redirect()->to('/login');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

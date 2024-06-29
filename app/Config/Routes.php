@@ -27,8 +27,9 @@ $routes->group('admin', function($routes) {
     $routes->post('accept/(:num)', 'AdminController::accept/$1'); // Menerima laporan
     $routes->post('reject/(:num)', 'AdminController::reject/$1'); // Menolak laporan
 });
+
 $routes->get('/pelaporan', 'ControlMenu::indexlapor');
-$routes->post('/submit-report', 'ControlMenu::submit'); // Meng-handle submit laporan
+$routes->post('/pelaporan/create', 'ControlMenu::submit'); // Meng-handle submit laporan
 $routes->get('/riwayat-laporan', 'ControlMenu::riwayatLaporan');
 $routes->get('/settingProfil', 'AkunController::setting');
 $routes->group('profile', ['filter' => 'auth'], function($routes) {
