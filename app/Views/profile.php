@@ -27,6 +27,8 @@
     <div class="sidebar" id="sidebar">
         <div class="top-section">
             TRASH !SSUE
+
+            <!-- awokwkwowowkwje -->
         </div>
         <div class="middle-section">
             <a href="#" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&amp;id=OXVih02dFZ53&amp;format=png&amp;color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
