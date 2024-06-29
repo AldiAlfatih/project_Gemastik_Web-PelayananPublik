@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class RiwayatLaporanModel extends Model
 {
     protected $table = 'laporan_sampah';
-    protected $allowedFields = ['title', 'description', 'location', 'status', 'created_at'];
+    protected $allowedFields = ['title', 'description', 'location', 'status_laporan', 'created_at'];
 
     public function getRiwayatLaporan($userId)
     {

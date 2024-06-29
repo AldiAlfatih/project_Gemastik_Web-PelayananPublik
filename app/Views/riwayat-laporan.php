@@ -140,8 +140,8 @@
                         <td><?= $laporan['location'] ?></td>
                         <td>
                             <!-- Pastikan $laporan sudah didefinisikan sebelumnya -->
-                            <?php if (isset($laporan['status'])) : ?>
-                                <p>Status: <?php echo $laporan['status']; ?></p>
+                            <?php if (isset($laporan['status_laporan'])) : ?>
+                                <?php echo $laporan['status_laporan']; ?>
                             <?php else : ?>
                                 <p>Status tidak tersedia</p>
                             <?php endif; ?>
