@@ -3,13 +3,21 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use \App\Models\LaporanFotoModel;
+use \App\Models\PelaporanModel;
 
 class ControlMenu extends Controller
 {
     public function indexlapor()
     {
         // Load view untuk halaman pelaporan
-        return view('pelaporan');
+        $session = session();
+        $data['success'] = $session->getFlashdata('success');
+        $data['error'] = $session->getFlashdata('error');
+        return view('pelaporan', $data);
+    }
+
+    public function infoleadeboard() {
+        return view('leaderboard');
     }
 
     // public function submit()
@@ -54,50 +62,87 @@ class ControlMenu extends Controller
         }
 
         // Validasi input
-        if (!$this->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'location' => 'required',
-            'photos' => [
-                'uploaded[photos]',
-                'mime_in[photos,image/jpg,image/jpeg,image/png]',
-                'max_size[photos,2048]',
-            ],
-        ])) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
+        // if (!$this->validate([
+        //     'title' => 'required',
+        //     'description' => 'required',
+        //     'location' => 'required',
+        //     'photo' => [
+        //         'uploaded[photo]',
+        //         'mime_in[photo,image/jpg,image/jpeg,image/png]',
+        //         'max_size[photo,2048]',
+        //     ],
+        // ])) {
+        //     return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        // }
 
-        $laporanModel = new \App\Models\PelaporanModel();
-        $laporanFotoModel = new \App\Models\LaporanFotoModel();
+        // $laporanModel = new \App\Models\PelaporanModel();
+        // $laporanFotoModel = new \App\Models\LaporanFotoModel();
 
-        $userId = session()->get('user_id');
-        $title = $this->request->getPost('title');
-        $description = $this->request->getPost('description');
-        $location = $this->request->getPost('location');
-        $photos = $this->request->getFiles('photos');
+        // $userId = session()->get('user_id');
+        // $title = $this->request->getPost('title');
+        // $description = $this->request->getPost('description');
+        // $location = $this->request->getPost('location');
+        // $photos = $this->request->getFiles('photo');
         
-        // Simpan data laporan
-        $laporanId = $laporanModel->insert([
-            'user_id' => $userId,
-            'title' => $title,
-            'description' => $description,
-            'location' => $location,
+        // // Simpan data laporan
+        // $laporanId = $laporanModel->insert([
+        //     'user_id' => $userId,
+        //     'title' => $title,
+        //     'description' => $description,
+        //     'location' => $location,
+        //     'created_at' => date('Y-m-d H:i:s')
+        // ]);
+
+        // // Simpan setiap foto yang diunggah
+        // foreach ($photos['photo'] as $photos) {
+        //     if ($photos->isValid() && !$photos->hasMoved()) {
+        //         $newName = $photos->getRandomName();
+        //         $photos->move(WRITEPATH . 'uploads', $newName);
+
+        //         $laporanFotoModel->insert([
+        //             'laporan_id' => $laporanId,
+        //             'photo' => $newName
+        //         ]);
+        //     }
+        // }
+
+        $session = session();
+        $reportModel = new PelaporanModel();
+        $photoModel = new LaporanFotoModel();
+
+        $data = [
+            'title' => $this->request->getPost('title'),
+            'description' => $this->request->getPost('description'),
+            'location' => $this->request->getPost('location'),
+            'user_id' => $session->get('user_id'), // Ambil user_id dari session
             'created_at' => date('Y-m-d H:i:s')
-        ]);
+        ];
 
-        // Simpan setiap foto yang diunggah
-        foreach ($photos['photos'] as $photo) {
-            if ($photo->isValid() && !$photo->hasMoved()) {
-                $newName = $photo->getRandomName();
-                $photo->move(WRITEPATH . 'uploads', $newName);
+        if ($reportModel->save($data)) {
+            $reportId = $reportModel->getInsertID();
+            $files = $this->request->getFiles();
 
-                $laporanFotoModel->insert([
-                    'laporan_id' => $laporanId,
-                    'photo' => $newName
-                ]);
+            if (isset($files['photos'])) {
+                foreach ($files['photos'] as $file) {
+                    if ($file->isValid() && !$file->hasMoved()) {
+                        $fileName = $file->getRandomName();
+                        $file->move(WRITEPATH . 'uploads', $fileName);
+
+                        $photoData = [
+                            'laporan_id' => $reportId,
+                            'photo' => $fileName,
+                        ];
+
+                        $photoModel->save($photoData);
+                    }
+                }
             }
-        }
 
+            $session->setFlashdata('success', 'Report successfully created!');
+        } else {
+            $session->setFlashdata('error', 'Failed to create report.');
+        }
+ 
         return redirect()->to('/pelaporan')->with('success', 'Laporan berhasil diajukan.');
     }
 
@@ -109,5 +154,7 @@ class ControlMenu extends Controller
 
         return view('riwayat-laporan', ['riwayatLaporan' => $riwayatLaporan]);
     }
+
+
 
 }

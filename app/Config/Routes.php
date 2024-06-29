@@ -5,14 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// $routes->get('/', 'Home::register');
-// $routes->post('/login', 'Home::login');
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Home::login');
 $routes->get('/register', 'Home::register');
 // $routes->get('/index', 'login:index');
-$routes->get('/register', 'AkunController::register');
-$routes->post('/akun/register', 'AkunController::register');
+// $routes->get('/register', 'AkunController::register');
+$routes->post('/register', 'AkunController::register');
 $routes->get('/login', 'AkunController::login');
 $routes->get('/login', 'AkunController::autentikasi');
 $routes->get('/home', 'AkunController::index');
@@ -28,8 +26,10 @@ $routes->group('admin', function($routes) {
     $routes->get('view/(:num)', 'AdminController::view/$1'); // Melihat detail laporan
     $routes->post('accept/(:num)', 'AdminController::accept/$1'); // Menerima laporan
     $routes->post('reject/(:num)', 'AdminController::reject/$1'); // Menolak laporan
-});$routes->get('/pelaporan', 'ControlMenu::indexlapor');
-$routes->post('/submit-report', 'ControlMenu::submit'); // Meng-handle submit laporan
+});
+
+$routes->get('/pelaporan', 'ControlMenu::indexlapor');
+$routes->post('/pelaporan/create', 'ControlMenu::submit'); // Meng-handle submit laporan
 $routes->get('/riwayat-laporan', 'ControlMenu::riwayatLaporan');
 $routes->get('/settingProfil', 'AkunController::setting');
 $routes->group('profile', ['filter' => 'auth'], function($routes) {

@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\AkunModel;
 use App\Models\LeaderboardModel;
 
 class AkunController extends Controller
@@ -80,11 +81,38 @@ class AkunController extends Controller
     }
 
 
-    public function leaderboard(): string
+    public function leaderboard()
     {
-        $model = new LeaderboardModel();
-        $data['leaderboard'] = $model->orderBy('poin', 'DESC')->findAll();
-        
+        $akunModel = new AkunModel();
+        $leaderboardModel = new LeaderboardModel();
+
+        // Ambil semua data dari tabel akun
+        $akunList = $akunModel->findAll();
+
+        // Array untuk menyimpan data leaderboard yang akan ditampilkan
+        $leaderboardData = [];
+
+        foreach ($akunList as $akun) {
+            // Ambil poin dari leaderboard berdasarkan id akun
+            $leaderboard = $leaderboardModel->where('id', $akun['id'])->first();
+
+            if ($leaderboard) {
+                $leaderboardData[] = [
+                    'id' => $akun['id'],
+                    'username' => $akun['username'],
+                    'poin' => $leaderboard['poin']
+                ];
+            }
+        }
+
+        // Urutkan leaderboard berdasarkan poin secara descending
+        usort($leaderboardData, function($a, $b) {
+            return $b['poin'] - $a['poin'];
+        });
+
+        // Data yang akan diteruskan ke view
+        $data['leaderboard'] = $leaderboardData;
+
         return view('leaderboard', $data);
     }
 

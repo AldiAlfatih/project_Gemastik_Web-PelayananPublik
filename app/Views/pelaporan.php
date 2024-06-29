@@ -1,3 +1,9 @@
+<?php
+    if (!session()->get('logged_in')) {
+        return redirect()->to('/login');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,7 +142,7 @@
         <div class="middle-section">
             <a href="/home" class="dashboard-nav-item active"><img src="https://img.icons8.com/?size=100&id=OXVih02dFZ53&format=png&color=000000" alt="Home Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Home</span></a>
-            <a href="#" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
+            <a href="akun/leaderboard" class="dashboard-nav-item"><img src="https://img.icons8.com/?size=100&id=tTos00QpPnCN&format=png&color=000000" alt="Leaderboard Icon" style="width: 24px; height: 24px; margin-right: 10px;">
                 <span class="text">Leaderboard</span></a>
             <div class='dashboard-nav-dropdown'>
                 <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
@@ -188,7 +194,8 @@
         <!-- Form Pelaporan Sampah -->
         <div class="report-form">
             <h2>Ajukan Laporan Sampah</h2>
-            <form action="/submit-report" method="POST" enctype="multipart/form-data">
+            <form action="/pelaporan/create" method="POST" enctype="multipart/form-data">
+                <?= csrf_field() ?>
                 <div class="form-group">
                     <label for="title">Judul Masalah</label>    
                     <input type="text" id="title" name="title" required>
@@ -202,33 +209,47 @@
                     <input type="text" id="location" name="location" required>
                 </div>
                 <div class="form-group">
-                    <label for="photos">Bukti Foto (max 5)</label>
-                    <div class="photo-grid">
-                        <div>
-                            <input type="file" id="photo1" name="photos[]" accept="image/*" required onchange="previewImage(event, 1)">
-                            <img id="photoPreview1" src="#" alt="Preview">
-                        </div>
-                        <div>
-                            <input type="file" id="photo2" name="photos[]" accept="image/*" onchange="previewImage(event, 2)">
-                            <img id="photoPreview2" src="#" alt="Preview">
-                        </div>
-                        <div>
-                            <input type="file" id="photo3" name="photos[]" accept="image/*" onchange="previewImage(event, 3)">
-                            <img id="photoPreview3" src="#" alt="Preview">
-                        </div>
-                        <div>
-                            <input type="file" id="photo4" name="photos[]" accept="image/*" onchange="previewImage(event, 4)">
-                            <img id="photoPreview4" src="#" alt="Preview">
-                        </div>
-                        <div>
-                            <input type="file" id="photo5" name="photos[]" accept="image/*" onchange="previewImage(event, 5)">
-                            <img id="photoPreview5" src="#" alt="Preview">
-                        </div>
-                    </div>
+                    <label for="photos">Photos (up to 5)</label>
+                    <input type="file" id="photos" name="photos[]" multiple required>
                 </div>
                 <button type="submit">Kirim Laporan</button>
             </form>
         </div>
+        <!-- <h1>Report Form</h1> -->
+
+        <?php if(isset($success)): ?>
+            <div style="color: green;">
+                <?= $success ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(isset($error)): ?>
+            <div style="color: red;">
+                <?= $error ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- <form action="/pelaporan/create" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div>
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div>
+                <label for="photo">Photo</label>
+                <input type="file" id="photo" name="photo" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form> -->
     </div>
 
     <script>
