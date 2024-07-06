@@ -19,6 +19,116 @@
 
     <!-- Main CSS File -->
     <link href="/assets/css/sedekah.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-top: 15%;
+        }
+
+        .report-form {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            width: 800px;
+        }
+
+        .report-form h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #666;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .form-group button:focus {
+            outline: none;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .photo-grid div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-grid img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+        }
+
+        .photo-grid input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="index-page">
@@ -98,8 +208,29 @@
                 <input type="number" id="kuantitas-barang" name="kuantitas-barang" required>
             </div>
             <div class="form-group">
-                <label for="gambar-barang">Gambar Barang</label>
-                <input type="file" id="gambar-barang" name="gambar-barang" accept="image/*" required>
+            <label for="photos">Foto Barang</label>
+                    <div class="photo-grid">
+                        <div>
+                            <input type="file" id="photo1" name="photos[]" accept="image/*" required onchange="previewImage(event, 1)">
+                            <img id="photoPreview1" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo2" name="photos[]" accept="image/*" onchange="previewImage(event, 2)">
+                            <img id="photoPreview2" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo3" name="photos[]" accept="image/*" onchange="previewImage(event, 3)">
+                            <img id="photoPreview3" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo4" name="photos[]" accept="image/*" onchange="previewImage(event, 4)">
+                            <img id="photoPreview4" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo5" name="photos[]" accept="image/*" onchange="previewImage(event, 5)">
+                            <img id="photoPreview5" src="#" alt="Preview">
+                        </div>
+                    </div>
             </div>
             <div class="form-group">
                 <label for="metode-penyerahan">Metode Penyerahan Barang</label>
@@ -131,6 +262,15 @@
                 this.parentElement.classList.toggle('active');
             });
         });
+        function previewImage(event, index) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('photoPreview' + index);
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 
     <!-- Include Font Awesome Icons -->

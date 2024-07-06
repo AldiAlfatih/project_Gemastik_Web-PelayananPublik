@@ -209,8 +209,29 @@
                     <input type="text" id="location" name="location" required>
                 </div>
                 <div class="form-group">
-                    <label for="photos">Photos (up to 5)</label>
-                    <input type="file" id="photos" name="photos[]" multiple required>
+                <label for="photos">Bukti Foto (max 5)</label>
+                    <div class="photo-grid">
+                        <div>
+                            <input type="file" id="photo1" name="photos[]" accept="image/*" required onchange="previewImage(event, 1)">
+                            <img id="photoPreview1" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo2" name="photos[]" accept="image/*" onchange="previewImage(event, 2)">
+                            <img id="photoPreview2" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo3" name="photos[]" accept="image/*" onchange="previewImage(event, 3)">
+                            <img id="photoPreview3" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo4" name="photos[]" accept="image/*" onchange="previewImage(event, 4)">
+                            <img id="photoPreview4" src="#" alt="Preview">
+                        </div>
+                        <div>
+                            <input type="file" id="photo5" name="photos[]" accept="image/*" onchange="previewImage(event, 5)">
+                            <img id="photoPreview5" src="#" alt="Preview">
+                        </div>
+                    </div>
                 </div>
                 <button type="submit">Kirim Laporan</button>
             </form>

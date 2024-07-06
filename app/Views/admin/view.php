@@ -35,4 +35,15 @@
         <a href="/admin">Kembali ke Dashboard</a>
     </div>
 </body>
+<script>
+    function previewImage(event, index) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('photoPreview' + index);
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+</script>
 </html>

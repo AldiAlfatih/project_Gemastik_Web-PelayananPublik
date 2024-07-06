@@ -129,6 +129,7 @@
                     <th>Lokasi</th>
                     <th>Status</th>
                     <th>Tanggal Dibuat</th>
+
                 </tr>
             </thead>
             <tbody>
